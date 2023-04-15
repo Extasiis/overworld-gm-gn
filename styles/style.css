@@ -16,9 +16,10 @@ body::after{
 
 header{
     width: 100%;
-    position: absolute;
+    position: relative;
     z-index: 2;    
     position: fixed;
+    
 }
 
 .nav{
@@ -26,6 +27,7 @@ header{
     padding: 20px 100px;
     justify-content: space-between;
     align-items: center;
+    
 }
 
 .nav__list{
@@ -35,19 +37,43 @@ header{
 }
 
 .nav__list a{
-    color: #000;
+    color: #ffffff;
     text-decoration: none;
     font-size: 1.2rem;
+    padding: 5px 20px;
 }
 
 .nav__img img{
     width: 100px;
+    filter: invert(1);
 }
 
 .welcome{
     position: relative;
     width: 100%;
     height: 400vh;
+    overflow-x: hidden;
+}
+
+.nigth-background{
+    width: 100%;
+    height: 70vh;
+    background-image: linear-gradient(to bottom, #263238, #3a4a69, #7c578c, #cb5c89, #ff7562);
+}
+
+.day{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 90vh;
+    background-image: linear-gradient(to right bottom, #5189de, #6690e7, #7997ef, #8b9ef7, #9ca5ff);
+}
+
+.night-backgorund{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 80vh;
 }
 
 .welcome__container{
@@ -55,13 +81,14 @@ header{
     position: fixed;
     height: 100vh;
     overflow: hidden;
+    
 }
 
-.welcome__img{
+.welcome__img{    
     position: absolute;
-    bottom: 0;
-    width: 110%;
-    left: -2%;
+    bottom: -3%;
+    width: 102%;
+    left: -1%;
     pointer-events: none;
     z-index: 1;
 }
@@ -75,7 +102,6 @@ header{
 .img-sol{
     bottom: calc(-1px*(var(--animation) * 2000));
     left: calc(var(--animation) *2000px);
-    opacity: 1
 }
 
 .morning{
@@ -142,17 +168,77 @@ header{
 
 .gm{
     position: absolute;
-    bottom: 150px;
+    bottom: 15%;
     left: 0;
     width: 35%;
-    left: calc(var(--animation) *-4000px);
+    left: calc(var(--animation) *-3000px);
     opacity: calc((var(--animation) *-10 - .01));
 }
 
+.gn{
+    position: absolute;
+    bottom: 15%;
+    left: 0;
+    width: 30%;
+    opacity: calc((var(--gn) - 0.05));
+    left: calc(var(--gn) *550px);
+}
+
+.night{
+    opacity: 0;
+}
+
+.img-luna{
+    left: calc(var(--animation) *1300px);
+    bottom: calc(-1px*(var(--animation) * 850));
+}
 .fondo{
     background-image: linear-gradient(to bottom, #051937, #0c2954, #163a72, #214b92, #2e5db3);
 }
 
 .fondo-2{
     background-image: linear-gradient(to bottom, #051937, #0c2954, #163a72, #214b92, #2e5db3);
+}
+
+.text{
+    width: 100%;
+    height: 50vh;
+}
+
+
+@media only screen and (max-width: 1550px){
+    .img-luna{
+        left: calc(var(--animation) *800px);
+        bottom: calc(-1px*(var(--animation) * 500));
+    }
+
+    .gn{
+        opacity: calc((var(--gn) - 0.05));
+        left: calc(var(--gn) *300px);
+    }
+}
+
+@media only screen and (max-width: 1024px){
+    .nigth-background{
+        height: 100vh;
+    } 
+    
+    .img-luna{
+        left: calc(var(--animation) *650px);
+        bottom: calc(-1px*(var(--animation) * 380));
+    }
+}
+
+@media only screen and (max-width: 768px){
+
+    .img-luna{
+        left: calc(var(--animation) *800px);
+        bottom: calc(-1px*(var(--animation) * 500));
+    }
+}
+
+@media only screen and (max-width: 480px){
+}
+
+@media only screen and (max-width: 320px){
 }

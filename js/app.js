@@ -5,7 +5,10 @@ const welcome = document.querySelector('.welcome');
 //img
 const imgs = document.querySelectorAll('.welcome__img');
 const morning = document.querySelectorAll('.morning');
-const gm = document.querySelector('.gm')
+const night = document.querySelectorAll('.night');
+const afternoon = document.querySelectorAll('.afternoon')
+const gm = document.querySelector('.gm');
+const gn = document.querySelector('.gn')
 
 window.addEventListener('scroll', scrollHistory);
 
@@ -33,9 +36,32 @@ function scrollBody(name, scrollPositionHalf){
 function animationTotal(name, scrollPosition){    
     const nameHeight = name.clientHeight;
     const namePosition = name.getBoundingClientRect().top;
+    
 
-    if(scrollPosition > namePosition + 2000 ){
+    if(scrollPosition > namePosition + 3000 ){
+        for (let i = 0; i < morning.length; i++) {
+            morning[i].style.opacity = `${(((namePosition) / nameHeight*25) / 3 ) -4}`      
+        }
+        
         welcome.style.setProperty('--animation', (namePosition) / nameHeight );
+        gn.style.opacity="";
+        welcome.style.setProperty('--gn', (((namePosition) / nameHeight*-20) / 4 ) -3);
+        for (let i = 0; i < night.length; i++) {
+         night[i].style.opacity = `${(((namePosition) / nameHeight*-20) / 4 ) -3}` 
+        }
+
+        console.log( `${(((namePosition) / nameHeight*-20) / 4 ) -3}` )
+    }
+
+    else if(scrollPosition > namePosition + 1500 ){
+        for (let i = 0; i < morning.length; i++) {
+            morning[i].style.opacity = `${(((namePosition) / nameHeight*25) / 3 ) +4}`     
+        }
+        welcome.style.setProperty('--animation', (namePosition) / nameHeight );
+        for (let i = 0; i < night.length; i++) {
+         night[i].style.opacity = ""   
+        }
+        gn.style.opacity="0";
     }
     else if(scrollPosition > namePosition + 100 ){
 
@@ -50,6 +76,8 @@ function animationTotal(name, scrollPosition){
         }
 
         gm.style.opacity=""
+        
+        gn.style.opacity="0";
         
     }
     else{
@@ -66,6 +94,11 @@ for (let i = 0; i < morning.length; i++) {
     morning[i].style.opacity = "0"   
 }
 
-gm.style.opacity="0"
+for (let i = 0; i < night.length; i++) {
+    night[i].style.opacity = "0"   
+}
+
+gm.style.opacity="0";
+gn.style.opacity="0";
 
 window.addEventListener();
